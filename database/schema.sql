@@ -1,18 +1,18 @@
 CREATE TABLE "customer" (
   "customerId" serial PRIMARY KEY,
-  "firstName" string,
-  "lastName" string,
-  "phoneNumber" string
+  "firstName" text,
+  "lastName" text,
+  "phoneNumber" text
 );
 
 CREATE TABLE "destinations" (
   "destinationId" serial PRIMARY KEY,
   "customerId" integer,
-  "name" string,
-  "region" string,
-  "category" string,
-  "description" string,
-  "term" string
+  "name" text,
+  "region" text,
+  "category" text,
+  "description" text,
+  "term" text
 );
 
 ALTER TABLE "destinations" ADD FOREIGN KEY ("customerId") REFERENCES "customer" ("customerId");
