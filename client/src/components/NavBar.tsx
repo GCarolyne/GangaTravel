@@ -1,13 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export function NavBar(){
     return <>
-  <nav className="h-20 sm:h-24 md:h-24 w-full bg-white flex justify-end items-end shadow-md relative">
-        <div className="flex items-center space-x-4 md:space-x-8 pb-2 pr-4">
-          <button className="px-3 py-2 text-gray-700 hover:text-blue-600 text-sm md:text-base font-medium">About</button>
-          <button className="px-3 py-2 text-gray-700 hover:text-blue-600 text-sm md:text-base font-medium">Destinations</button>
-          <button className="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm md:text-base font-medium">Start Planning</button>
-
+  <nav className="h-20 sm:h-24 md:h-24 w-full bg-amber-700 flex items-center shadow-md relative">
+    <div className="flex items-center h-full pl-4 w-full justify-center">
+       <Link to="/">
+       <img className="w-auto object-contain rounded-full shadow-md"
+       src="/images/shutterstock_534787495_edited.jpeg"/>
+       </Link>
+       <Link to="/about">
+       <button>About</button>
+       </Link>
+       <Link to="/destinations">
+       <button>Destinations</button>
+       </Link>
       </div>
     </nav>
     <Outlet/>
