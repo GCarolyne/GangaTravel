@@ -1,21 +1,25 @@
 import { Link, Outlet } from "react-router-dom";
 
-export function NavBar(){
-    return <>
-  <nav className="h-20 sm:h-24 md:h-24 w-full bg-amber-700 flex items-center shadow-md relative">
-    <div className="flex items-center h-full pl-4 w-full justify-center">
-       <Link to="/">
-       <img className="w-auto object-contain rounded-full shadow-md"
-       src="/images/shutterstock_534787495_edited.jpeg"/>
-       </Link>
-       <Link to="/about">
-       <button>About</button>
-       </Link>
-       <Link to="/destinations">
-       <button>Destinations</button>
-       </Link>
-      </div>
-    </nav>
-    <Outlet/>
+export function NavBar() {
+  return (
+    <>
+      <nav className="h-20 sm:h-24 md:h-24 w-full bg-white flex items-center shadow-md relative">
+        <div className="flex justify-center">
+          <img
+            className="mr-14px h-14 sm:h-16 md:h-18 w-auto object-contain rounded-full shadow-md"
+            src="/images/shutterstock_534787495_edited.jpeg"
+          />
+        </div>
+        <div className="flex items-center space-x-4 md:space-x-8">
+          <Link to="/about">
+            <button>O nás</button>
+          </Link>
+          <Link to="/destinations">
+            <button>Destinácie</button>
+          </Link>
+        </div>
+      </nav>
+      <Outlet />
     </>
+  );
 }
