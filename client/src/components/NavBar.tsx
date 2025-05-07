@@ -3,20 +3,22 @@ import { Link, Outlet } from "react-router-dom";
 export function NavBar() {
   return (
     <>
-      <nav className="h-20 sm:h-24 md:h-24 w-full bg-white flex items-center shadow-md relative">
-        <div className="flex justify-center">
-          <img
-            className="mr-14px h-14 sm:h-16 md:h-18 w-auto object-contain rounded-full shadow-md"
-            src="/images/shutterstock_534787495_edited.jpeg"
-          />
-        </div>
-        <div className="flex items-center space-x-4 md:space-x-8">
-          <Link to="/about">
-            <button>O nás</button>
-          </Link>
-          <Link to="/destinations">
-            <button>Destinácie</button>
-          </Link>
+      {/* Reduced overall height and removed extra containers */}
+      <nav className="h-12 w-full bg-white flex items-center justify-center shadow-sm relative">
+        {/* Compact container with minimal padding */}
+        <div className="h-8 bg-gray-100 rounded px-3 flex items-center">
+          {/* Tighter spacing between links */}
+          <div className="flex items-center space-x-2 text-sm">
+            <Link to="/about">
+              <button className="px-2 py-1">O nás/O klube</button>
+            </Link>
+            <Link to="/zapiste-sa">
+              <button className="px-2 py-1">Zadajte Email</button>
+            </Link>
+            <Link to="/Parthenope Juzne Taliansko">
+              <button className="px-2 py-1">Juzne Taliansko</button>
+            </Link>
+          </div>
         </div>
       </nav>
       <Outlet />
