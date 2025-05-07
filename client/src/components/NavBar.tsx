@@ -3,24 +3,63 @@ import { Link, Outlet } from "react-router-dom";
 export function NavBar() {
   return (
     <>
-      {/* Reduced overall height and removed extra containers */}
-      <nav className="h-12 w-full bg-white flex items-center justify-center shadow-sm relative">
-        {/* Compact container with minimal padding */}
-        <div className="h-8 bg-gray-100 rounded px-3 flex items-center">
-          {/* Tighter spacing between links */}
-          <div className="flex items-center space-x-2 text-sm">
-            <Link to="/about">
-              <button className="px-2 py-1">O nás/O klube</button>
-            </Link>
-            <Link to="/zapiste-sa">
-              <button className="px-2 py-1">Zadajte Email</button>
-            </Link>
-            <Link to="/Parthenope Juzne Taliansko">
-              <button className="px-2 py-1">Juzne Taliansko</button>
-            </Link>
+      <div className="flex justify-center w-full py-4">
+        <nav className="bg-white shadow-md rounded-md mx-auto">
+          <div className="p-6 sm:p-8 md:p-10">
+            {/* Using flex-wrap and gap for better responsive behavior */}
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8">
+              {/* First Card */}
+              <div className="bg-gray-50 rounded-lg shadow p-4 flex flex-col items-center w-56 sm:w-64">
+                {/* Responsive Image Container */}
+                <div className="w-full mb-3">
+                  <img
+                    src="/images/Unknown.jpeg"
+                    alt="view of Naples"
+                    className="w-full h-32 sm:h-40 object-cover rounded-md"
+                  />
+                </div>
+                <Link to="/About">
+                  <button className="w-full px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors">
+                    O nás/O klube
+                  </button>
+                </Link>
+              </div>
+
+              {/* Second Card */}
+              <div className="bg-gray-50 rounded-lg shadow p-4 flex flex-col items-center w-56 sm:w-64">
+                <div className="w-full mb-3">
+                  <img
+                    src="/images/shutterstock_586629710.jpg"
+                    alt="Email signup"
+                    className="w-full h-32 sm:h-40 object-cover rounded-md"
+                  />
+                </div>
+                <Link to="/Outreach">
+                  <button className="w-full px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors">
+                    Zadajte Email
+                  </button>
+                </Link>
+              </div>
+
+              {/* Third Card */}
+              <div className="bg-gray-50 rounded-lg shadow p-4 flex flex-col items-center w-56 sm:w-64">
+                <div className="w-full mb-3">
+                  <img
+                    src="/images/shutterstock_1520953610.jpg"
+                    alt="Southern Italy"
+                    className="w-full h-32 sm:h-40 object-cover rounded-md"
+                  />
+                </div>
+                <Link to="/Destinations">
+                  <button className="w-full px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors">
+                    Juzne Taliansko
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
       <Outlet />
     </>
   );

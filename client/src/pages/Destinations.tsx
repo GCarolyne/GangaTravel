@@ -1,4 +1,7 @@
-export function Destinations(){
-    return
-    <></>
+export function Destinations() {
+  return (
+    <>
+      <div className="@container w-full h-screen bg-olive/70"></div>
+    </>
+  );
 }
