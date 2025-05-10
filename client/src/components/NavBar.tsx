@@ -22,12 +22,12 @@ export function NavBar() {
               </Link>
               <Link to="/Outreach">
                 <button className="px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors shadow-sm">
-                  Zadajte Email
+                  Informacie
                 </button>
               </Link>
               <Link to="/Destinations">
                 <button className="px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors shadow-sm">
-                  Juzne Taliansko
+                  Destinacie
                 </button>
               </Link>
             </div>

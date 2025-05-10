@@ -1,6 +1,6 @@
 import { NavBar } from "../components/NavBar";
 
-export function About() {
+export function Home() {
   return (
     <>
       <div className="@container w-full h-screen bg-orange-800">
