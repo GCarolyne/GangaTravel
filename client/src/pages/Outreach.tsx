@@ -2,7 +2,7 @@ export function Outreach() {
   return (
     <>
       <div className="@container w-full h-screen bg-olive/70">
-        <div className="relative flex justify-center mt-16">
+        <div className="relative flex mt-16">
           <hr className="w-full sm:w-1/2 h-px bg-white border-0 dark:bg-gray-700" />
           <img
             src="/images/lyra.jpg"
