@@ -3,22 +3,37 @@ import { Link, Outlet } from "react-router-dom";
 export function NavBar() {
   return (
     <>
-      <nav className="h-20 sm:h-24 md:h-24 w-full bg-white flex items-center shadow-md relative">
-        <div className="flex justify-center">
-          <img
-            className="mr-14px h-14 sm:h-16 md:h-18 w-auto object-contain rounded-full shadow-md"
-            src="/images/shutterstock_534787495_edited.jpeg"
-          />
-        </div>
-        <div className="flex items-center space-x-4 md:space-x-8">
-          <Link to="/about">
-            <button>O nás</button>
-          </Link>
-          <Link to="/destinations">
-            <button>Destinácie</button>
-          </Link>
-        </div>
-      </nav>
+      <div className="flex justify-center w-full pt-20 pb-4">
+        <nav className="relative">
+          <div className="flex flex-col items-center">
+            <div className="relative flex flex-col items-center w-full">
+              <img
+                src="/images/lyra.jpg"
+                alt="lyra"
+                className="absolute -top-8 w-16 h-16 rounded-full border-2 border-white object-cover bg-black z-10 mt-20px"
+              />
+              <hr className="w-full mt-8 h-0.5 bg-black border-0" />
+            </div>
+            <div className="flex flex-row justify-center mt-6 space-x-4">
+              <Link to="/About">
+                <button className="px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors shadow-sm">
+                  O nás/O klube
+                </button>
+              </Link>
+              <Link to="/Outreach">
+                <button className="px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors shadow-sm">
+                  Informacie
+                </button>
+              </Link>
+              <Link to="/Destinations">
+                <button className="px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors shadow-sm">
+                  Destinacie
+                </button>
+              </Link>
+            </div>
+          </div>
+        </nav>
+      </div>
       <Outlet />
     </>
   );
