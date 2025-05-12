@@ -23,6 +23,14 @@ const images: Image[] = [
     src: "/images/shutterstock_2131778839.jpg",
     alt: "Napoli",
   },
+  {
+    src: "/images/shutterstock_273072623.jpg",
+    alt: "ice-cream",
+  },
+  {
+    src: "/images/shutterstock_340214423.jpg",
+    alt: "ice-cream",
+  },
 ];
 export function Destinations() {
   return (
