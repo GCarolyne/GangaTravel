@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { NavBar } from "../components/NavBar";
 export function About() {
   return (
@@ -70,7 +71,7 @@ export function About() {
 
           <div className="mt-6 text-center">
             <button className="bg-[#a47148] text-white py-2 px-6 rounded-md hover:bg-[#92613c] transition-colors font-serif">
-              Rezervovať termín
+              <Link to="/Form">Rezervovať termín</Link>
             </button>
           </div>
         </div>

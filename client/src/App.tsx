@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Form, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { About } from "./pages/About";
 import { Destinations } from "./pages/Destinations";
@@ -13,6 +13,7 @@ function App() {
         <Route path="/About" element={<About />}></Route>
         <Route path="/Destinations" element={<Destinations />}></Route>
         <Route path="/Outreach" element={<FormPage />}></Route>
+        <Route path="/Reserve" element={<Form />}></Route>
       </Routes>
     </>
   );
