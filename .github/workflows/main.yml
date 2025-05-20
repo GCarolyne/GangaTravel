@@ -1,18 +1,44 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Deploy
+on:
+  push:
+    branches:
+      - pub
+
+  # Allow deploy to be triggered manually
+  workflow_dispatch:
+
 jobs:
-  Explore-GitHub-Actions:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Build project
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          npm ci
+          npm run build
+
+      - name: Copy project to EC2
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete
+          path: ./*
+          remote_path: /home/ec2-user/project/
+          remote_host: ${{ env.EC2_HOST }}
+          remote_user: ec2-user
+          remote_key: "${{ env.SSH_PRIVATE_KEY }}"
+      - name: Install and run on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ env.EC2_HOST }}
+          username: ec2-user
+          key: ${{ env.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ec2-user/project
+            sh scripts/ec2env.sh
+            npm run db:import
+            pm2 start --time npm -- start
