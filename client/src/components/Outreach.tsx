@@ -8,7 +8,7 @@ export function Outreach() {
     const data = Object.fromEntries(formData);
     try {
       const response = await fetch("/api/outreach", {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -64,18 +64,7 @@ export function Outreach() {
               required
             />
           </div>
-          <div className="mb-5">
-            <label htmlFor="email" className="block text-[#5e3d1f] mb-1">
-              Zadajte svoj email:
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="w-full px-4 py-2 border border-[#c4a484] rounded-md bg-[#fdf6ee] text-[#3d2c1e] focus:outline-none focus:ring-2 focus:ring-[#caa674]"
-              required
-            />
-          </div>
+
           <div className="mb-6">
             <label htmlFor="phoneNumber" className="block text-[#5e3d1f] mb-1">
               Tel. číslo:
@@ -89,6 +78,7 @@ export function Outreach() {
           </div>
           <div className="mb-6">
             <label htmlFor="email" className="block text-[#5e3d1f] mb-1">
+              Email:
               <input
                 type="email"
                 name="email"
