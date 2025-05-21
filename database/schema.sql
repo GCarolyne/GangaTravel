@@ -2,7 +2,8 @@ CREATE TABLE "customer" (
   "customerId" serial PRIMARY KEY,
   "firstName" text,
   "lastName" text,
-  "phoneNumber" text
+  "phoneNumber" text,
+  "email" text
 );
 
 CREATE TABLE "destinations" (
