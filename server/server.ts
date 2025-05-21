@@ -24,6 +24,30 @@ app.get("/api/test", async (req, res) => {
   res.send("Hello, world!");
 });
 
+app.post("/api/outreach", async (req, res, next) => {
+  try {
+    const formData = req.body;
+    if (formData === undefined) {
+      throw new ClientError(400, "please fill out the form properly.");
+    }
+    const sql = `
+        insert into "customer" ("firstName","lastName","phoneNumber","email")
+        values($1,$2,$3,$4)
+        returning *`;
+    const params = [
+      formData.firstName,
+      formData.lastName,
+      formData.phoneNumber,
+      formData.email,
+    ];
+    const response = await db.query(sql, params);
+    if (!response) throw new Error("response failed");
+    res.json(response.rows[0]);
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.get("*", (req, res) => res.sendFile(`${reactStaticDir}/index.html`));
 
 app.use(errorMiddleware);
