@@ -16,7 +16,7 @@
     "lint:client": "npm run lint --prefix client",
     "lint:server": "npm run lint --prefix server",
     "lint": "npm-run-all --parallel lint:*",
-    "psql": ". server/.env && psql $DATABASE_URL",
+    "psql": ". server/.env && psql $DATABASE_URL_GANGA",
     "tsc:client": "tsc --project client",
     "tsc:server": "tsc --project server",
     "tsc": "npm-run-all --continue-on-error tsc:*",
