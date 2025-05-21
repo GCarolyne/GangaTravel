@@ -4,7 +4,7 @@ import express from "express";
 import { ClientError, errorMiddleware } from "./lib/index.js";
 
 const db = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL_GANGA,
   ssl: {
     rejectUnauthorized: false,
   },
